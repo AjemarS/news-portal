@@ -14,7 +14,7 @@ export default async function Main({ category }: { category: string }) {
       {response.data.status === "ok" ? (
         response.data.articles.map((article: Article, index: number) => (
           <Link href={`/${category}/article/${index}`} key={index} className="flex w-1/2">
-            <NewsTeaser key={index} item={article} />
+            {article.title !== "[Removed]" && <NewsTeaser key={index} item={article} />}
           </Link>
         ))
       ) : (
