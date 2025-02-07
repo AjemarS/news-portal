@@ -1,15 +1,24 @@
+"use client";
+
+import { ThemeProvider } from "next-themes";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import { SearchResultsProvider } from "./components/SearchResultsProvider";
+import { usePathname } from "next/navigation";
 
-export default async function Home({ params }: { params: { category: string } }) {
-  const { category } = await params;
+export default function Home() {
+  const category = usePathname().split("/")[1];
 
   return (
-    <div>
-      <Header category={category} />
-      <Main category={category} />
-      <Footer />
-    </div>
+    <ThemeProvider attribute="class">
+      <div>
+        <SearchResultsProvider>
+          <Header category={category} />
+            <Main category={category} />
+        </SearchResultsProvider>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }

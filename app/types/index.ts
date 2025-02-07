@@ -18,4 +18,5 @@ export interface Article {
 export interface NewsListItem {
   title: string;
   description: string;
+  urlToImage: string;
 }

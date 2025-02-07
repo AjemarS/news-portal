@@ -11,7 +11,9 @@ export default async function Home() {
     return <p>No available topics</p>;
   }
 
-  const uniqueThemes = [...new Set(sources.map((source: any) => source.category.toLowerCase()))];
+  const uniqueThemes = [
+    ...new Set(sources.map((source: { category: string }) => source.category.toLowerCase())),
+  ];
 
   redirect(`/${uniqueThemes[0]}`);
 }
