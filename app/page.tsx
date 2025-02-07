@@ -1,11 +1,12 @@
 import { redirect } from "next/navigation";
-import { instance } from "./config/axios";
+import { getSources } from "./[category]/actions";
+
 
 export default async function Home() {
   // Prevented from changing the topics from API and broke all routes
 
-  const response = await instance.get("/top-headlines/sources");
-  const sources = response.data.sources;
+  const response = await getSources();
+  const sources = response.sources;
 
   if (!sources.length) {
     return <p>No available topics</p>;
