@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This project is an application that fetches news using the News API and sorts them into predefined categories. Users can also search for news by keyword or multiple keywords. The app supports both light and dark modes.
 
 ## Getting Started
 
